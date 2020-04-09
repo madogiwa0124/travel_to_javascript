@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 2.7.1
   Exclude:
     - 'vendor/**/*'
+    - 'spec/spec_helper.rb'
 
 Lint/RaiseException:
   Enabled: true
