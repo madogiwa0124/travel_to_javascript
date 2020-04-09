@@ -1,0 +1,40 @@
+AllCops:
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - 'vendor/**/*'
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Metrics/ClassLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 90
+  Exclude:
+    - 'travel_to_javascript.gemspec'
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
