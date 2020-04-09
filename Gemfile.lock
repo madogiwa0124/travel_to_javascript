@@ -4,6 +4,7 @@ PATH
     travel_to_javascript (0.1.0)
       capybara
       rspec
+      webdrivers (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -19,6 +20,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    childprocess (3.0.0)
     diff-lcs (1.3)
     jaro_winkler (1.5.4)
     mini_mime (1.0.2)
@@ -63,6 +65,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
+    rubyzip (2.3.0)
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -70,6 +76,10 @@ GEM
       tilt (~> 2.0)
     tilt (2.0.10)
     unicode-display_width (1.7.0)
+    webdrivers (4.2.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (>= 3.0, < 4.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 

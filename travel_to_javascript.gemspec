@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.add_runtime_dependency 'capybara'
   spec.add_runtime_dependency 'rspec'
+  spec.add_runtime_dependency 'webdrivers', '~> 4.0'
 end
