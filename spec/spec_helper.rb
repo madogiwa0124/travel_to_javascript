@@ -4,6 +4,7 @@ require 'bundler/setup'
 require 'capybara/rspec'
 require 'webdrivers/chromedriver'
 require 'travel_to_javascript'
+require 'capybara_helper'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -17,19 +18,3 @@ RSpec.configure do |config|
   end
 end
 
-Capybara.register_driver :headless_chrome do |app|
-  driver = Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-      login_prefs: { browser: 'ALL' },
-      chrome_options: {
-        args: %w[headless disable-gpu window-size=1900,1200 lang=ja no-sandbox disable-dev-shm-usage],
-      }
-    )
-  )
-  driver
-end
-
-Capybara.server = :webrick
-Capybara.javascript_driver = :headless_chrome
