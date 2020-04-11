@@ -13,6 +13,14 @@ Lint/StructNewOverride:
 Metrics/ClassLength:
   Max: 120
 
+Metrics/MethodLength:
+  Exclude:
+    - 'test/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'test/**/*'
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
