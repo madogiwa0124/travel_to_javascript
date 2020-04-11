@@ -1,8 +1,9 @@
 # TravelToJavascript
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/travel_to_javascript`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides a helper `travel_to_javascript` that locks time in javascript.
+It supports `rspec` and `minitest` using capybara.
 
-TODO: Delete this and the text above, and describe your gem
+Override `Date` and `Date.now` in JavaScript by args.
 
 ## Installation
 
@@ -22,7 +23,53 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`travel_to_javascript` can be used by include `TravelToJavascript`.
+
+By passing the object of `Capybara::Session`(ex. `page`) and the date and time to the argument of `travel_to_javascript`, the time of JavaScript in the block can be fixed at the time of the argument.
+
+### Rspec
+
+``` ruby
+RSpec.describe SampleFeatureSpec, type: :feature do
+  include TravelToJavascript
+
+  it 'sample spec' do
+    page = Capybara::Session.new(:headless_chrome, TestApp)
+    travel_to_javascript(page, DateTime.parse('2000-01-01 1:11:11.111+9:00')) do
+      page.execute_script('console.error(Date.now(), new Date())')
+      pp page.driver.browser.manage.logs.get(:browser).map(&:message)
+      # locks time by args in block.
+      # => ["console-api 2:32 1586594973394 Sat Jan 01 2000 01:11:11 GMT+0900"]
+    end
+    page.execute_script('console.error(Date.now(), new Date())')
+    pp page.driver.browser.manage.logs.get(:browser).map(&:message)
+    # restore time outside block.
+    # => ["console-api 2:32 1586594973413 Sat Apr 11 2020 17:49:33 GMT+0900"]
+  end
+end
+```
+
+### Minitest
+
+``` ruby
+class SampleFeatureTest < Minitest::Test
+  include TravelToJavascript
+
+  def test_sample
+    page = Capybara::Session.new(:headless_chrome, TestApp)
+    travel_to_javascript(page, DateTime.parse('2000-01-01 1:11:11.111+9:00')) do
+      page.execute_script('console.error(Date.now(), new Date())')
+      pp page.driver.browser.manage.logs.get(:browser).map(&:message)
+      # locks time by args in block.
+      # => ["console-api 2:32 1586594973394 Sat Jan 01 2000 01:11:11 GMT+0900"]
+    end
+    page.execute_script('console.error(Date.now(), new Date())')
+    pp page.driver.browser.manage.logs.get(:browser).map(&:message)
+    # restore time outside block.
+    # => ["console-api 2:32 1586594973413 Sat Apr 11 2020 17:49:33 GMT+0900"]
+  end
+end
+```
 
 ## Development
 
