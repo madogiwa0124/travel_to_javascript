@@ -32,6 +32,8 @@ class TravelToJavascriptTest < Minitest::Test
     call_js_get_date(session)
     results = js_console_dates(session)
     assert_equal results[1], [target_date.to_s, target_date.to_s]
+    # TODO: The first JavaScript execution and the third JavaScript
+    # execution will fail if there is an interval exceeding 1 second.
     assert_equal results[0], results[2]
   end
 end

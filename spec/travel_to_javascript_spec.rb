@@ -27,6 +27,8 @@ RSpec.describe TravelToJavascript, type: :feature do
     messages = session.driver.browser.manage.logs.get(:browser).collect(&:message)
     result = JsConsoleDates.new(messages).call
     expect(result[1]).to eq [target_date.to_s, target_date.to_s]
+    # TODO: The first JavaScript execution and the third JavaScript
+    # execution will fail if there is an interval exceeding 1 second.
     expect(result[0]).to eq result[2]
   end
 end
