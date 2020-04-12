@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'capybara/minitest'
+require 'webdrivers/chromedriver'
+
 Capybara.register_driver :headless_chrome do |app|
   driver = Capybara::Selenium::Driver.new(
     app,

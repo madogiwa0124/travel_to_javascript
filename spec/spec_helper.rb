@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'capybara/rspec'
-require 'webdrivers/chromedriver'
 require 'travel_to_javascript'
 require 'capybara_helper'
 
