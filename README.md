@@ -8,6 +8,12 @@ It supports `rspec` and `minitest` using capybara.
 
 Override `Date` and `Date.now` in JavaScript by args.
 
+:warning: cautions when using
+
+* It is not possible to stop time between pages by performing visits etc. in travel_to_javascript because JavaScript will be reloaded when the page is reloaded.
+
+* If the judgment is made on the JavaScript side when loarding the page, it may not work because the judgment may be made before executing execute_script.
+
 ## Installation
 
 Add this line to your application's Gemfile:
