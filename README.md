@@ -1,5 +1,8 @@
 # TravelToJavascript
 
+[![Gem Version](https://badge.fury.io/rb/travel_to_javascript.svg)](https://badge.fury.io/rb/travel_to_javascript)
+[![Build Status](https://travis-ci.com/Madogiwa0124/travel_to_javascript.svg?branch=master)](https://travis-ci.com/Madogiwa0124/travel_to_javascript)
+
 This gem provides a helper `travel_to_javascript` that locks time in javascript.
 It supports `rspec` and `minitest` using capybara.
 
