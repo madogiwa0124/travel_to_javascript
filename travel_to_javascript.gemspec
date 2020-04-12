@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['madogiwa0124@gmail.com']
 
   spec.summary       = 'This gem provides a helper `travel_to_javascript` that locks time in javascript.'
-  spec.description   = 'This gem provides a helper travel_to_javascript that locks time in javascript. It supports rspec and minitest using capybara.'
+  spec.description   = 'It supports rspec and minitest using capybara.Override Date and Date.now in JavaScript by args.'
   spec.homepage      = 'https://github.com/Madogiwa0124/travel_to_javascript'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
